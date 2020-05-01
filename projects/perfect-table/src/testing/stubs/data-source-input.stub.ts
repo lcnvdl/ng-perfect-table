@@ -13,9 +13,8 @@ export class DataSourceInputStub implements IDataSourceInput {
 
   private getEntities(page, count, filters, sort?: ISortDefinition[]): any[] {
     const list = [];
-
-    let from = page * count;
-    let to = (page + 1) * count;
+    const from = page * count;
+    const to = (page + 1) * count;
 
     for (let i = 0; i < 25; i++) {
       list.push({ id: i, name: "ABC" });
@@ -32,8 +31,8 @@ export class DataSourceInputStub implements IDataSourceInput {
         }
       });
     }
-  
-    let finalList = [];
+
+    const finalList = [];
 
     for (let i = 0; i < 25; i++) {
       if (i >= from && i < to) {

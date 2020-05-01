@@ -30,6 +30,10 @@ export class DataTableComponent extends PFTComponent implements OnInit {
   get finalCssClass() {
     let css = this.pftClass || "";
 
+    if (!this.entities || this.entities.length === 0) {
+      css = css + " empty";
+    }
+
     if (this.sortable) {
       css = css + " sortable";
     }

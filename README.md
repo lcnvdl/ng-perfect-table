@@ -5,6 +5,7 @@ This software is provided free of charge and without restriction under the [MIT 
 
 ## Live demo
 [Live demo (Stackblitz)](https://stackblitz.com/github/lcnvdl/ng-perfect-table-samples)
+ 
 [Demo project (Github)](https://github.com/lcnvdl/perfect-table-samples)
 
 ## Installation

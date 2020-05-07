@@ -4,7 +4,8 @@
 This software is provided free of charge and without restriction under the [MIT License](LICENSE)
 
 ## Live demo
-[Live demo](https://stackblitz.com/github/lcnvdl/ng-perfect-table-samples)
+[Live demo (Stackblitz)](https://stackblitz.com/github/lcnvdl/ng-perfect-table-samples)
+[Demo project (Github)](https://github.com/lcnvdl/perfect-table-samples)
 
 ## Installation
 ```bash
@@ -44,8 +45,3 @@ export class AppModule {
   //  ...
 }
 ```
-
-## Demos
-
-<https://github.com/lcnvdl/perfect-table-samples>
-

@@ -45,7 +45,7 @@ export class AppModule {
 }
 ```
 
-## Example
+## Demos
 
-https://github.com/lcnvdl/perfect-table-samples
+<https://github.com/lcnvdl/perfect-table-samples>
 

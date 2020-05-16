@@ -5,10 +5,10 @@
   <thead>
     <tr>
       <ng-container *ngFor="let column of table.columns">
-        <td [class.cursor-pointer]="column.sortable" 
+        <th [class.cursor-pointer]="column.sortable" 
           (click)="sort(column)" *ngIf="column.isHeaderHTML" 
-          [innerHTML]="column.headerHTML"></td>
-        <td [class.cursor-pointer]="column.sortable" 
+          [innerHTML]="column.headerHTML"></th>
+        <th [class.cursor-pointer]="column.sortable" 
           [class.s-asc]="isSortingAsc(column)"
           [class.s-des]="isSortingDesc(column)"
           [class.s-non]="isUnsorted(column)"
@@ -17,7 +17,7 @@
           <span *ngIf="column.isHeaderLabelHTML" [innerHTML]="column.headerLabelHTML">{{column.headerLabelHTML}}</span>
           <span *ngIf="!column.isHeaderLabelHTML">{{column.title}}</span>
           <span class="sort-icon right-icon"></span>
-        </td>
+        </th>
       </ng-container>
     </tr>
   </thead>

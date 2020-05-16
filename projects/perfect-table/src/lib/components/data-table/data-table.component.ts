@@ -27,7 +27,7 @@ export class DataTableComponent extends PFTComponent implements OnInit {
     return this.dataSource.entities;
   }
 
-  get finalCssClass() {
+  get finalCssClasses() {
     let css = this.pftClass || "";
 
     if (!this.entities || this.entities.length === 0) {
@@ -45,6 +45,31 @@ export class DataTableComponent extends PFTComponent implements OnInit {
     return css.trim();
   }
 
+  getFinalColumnCssClasses(column: ColumnDefinition) {
+    const cssClasses = [...column.classes];
+
+    if (column.sortable) {
+      //  TODO  Maybe we should remove cursor-pointer, and let the user to choose the cursor by overriding sortable class.
+      cssClasses.push("cursor-pointer");
+      cssClasses.push("sortable");
+
+      if (this.isUnsorted(column)) {
+        cssClasses.push("s-non");
+      }
+      else if (this.isSortingAsc(column)) {
+        cssClasses.push("s-asc");
+      }
+      else {
+        cssClasses.push("s-des");
+      }
+    }
+    else {
+      cssClasses.push("s-non");
+    }
+
+    return cssClasses.join(" ");
+  }
+
   isSortingAsc(column: ColumnDefinition) {
     return this.dataSource.sorting.some(m => m.column === column.id && m.type === SortType.Asc);
   }
@@ -58,7 +83,7 @@ export class DataTableComponent extends PFTComponent implements OnInit {
   }
 
   async sort(column: ColumnDefinition) {
-    if (!this.dataSource.isLoading) {
+    if (!this.dataSource.isLoading && column.sortable) {
       await this.dataSource.toggleSorting(column.id);
     }
   }

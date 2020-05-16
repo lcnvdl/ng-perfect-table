@@ -1,18 +1,17 @@
 <div class="alert alert-error" *ngIf="!dataSource">DataSource is required.</div>
 <div class="alert alert-error" *ngIf="!table">Table definition is required.</div>
+<div class="alert alert-error" *ngIf="table && (!table.columns || table.columns.length===0)">
+  The table requires at least one column.
+</div>
 
-<table *ngIf="dataSource && table" [class]="finalCssClass">
+<table *ngIf="dataSource && table" [class]="finalCssClasses">
   <thead>
     <tr>
       <ng-container *ngFor="let column of table.columns">
-        <th [class.cursor-pointer]="column.sortable" 
-          (click)="sort(column)" *ngIf="column.isHeaderHTML" 
-          [innerHTML]="column.headerHTML"></th>
-        <th [class.cursor-pointer]="column.sortable" 
-          [class.s-asc]="isSortingAsc(column)"
-          [class.s-des]="isSortingDesc(column)"
-          [class.s-non]="isUnsorted(column)"
-          (click)="sort(column)" *ngIf="!column.isHeaderHTML">
+        <th [attr.data-column-id]="column.id" [class]="getFinalColumnCssClasses(column)" (click)="sort(column)"
+          *ngIf="column.isHeaderHTML" [innerHTML]="column.headerHTML"></th>
+        <th [attr.data-column-id]="column.id" [class]="getFinalColumnCssClasses(column)" (click)="sort(column)"
+          *ngIf="!column.isHeaderHTML">
           <span class="sort-icon left-icon"></span>
           <span *ngIf="column.isHeaderLabelHTML" [innerHTML]="column.headerLabelHTML">{{column.headerLabelHTML}}</span>
           <span *ngIf="!column.isHeaderLabelHTML">{{column.title}}</span>

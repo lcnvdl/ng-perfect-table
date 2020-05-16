@@ -37,6 +37,9 @@ export class DataTableComponent extends PFTComponent implements OnInit {
     if (this.sortable) {
       css = css + " sortable";
     }
+    else {
+      css = css + " n-sortable";
+    }
 
     if (this.isLoading) {
       css = css + " loading";
@@ -64,6 +67,7 @@ export class DataTableComponent extends PFTComponent implements OnInit {
       }
     }
     else {
+      cssClasses.push("n-sortable");
       cssClasses.push("s-non");
     }
 

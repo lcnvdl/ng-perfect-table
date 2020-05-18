@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "increase-version": "cd projects/perfect-table && npm version patch && cd .. && cd ..",
-    "publish": "npm run increase-version && ng build --prod && cd dist/perfect-table && npm publish"
+    "publish": "npm run increase-version && ng build --prod && cd dist/perfect-table && npm publish && echo Finished!"
   },
   "private": true,
   "dependencies": {

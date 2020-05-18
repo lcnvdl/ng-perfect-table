@@ -1,6 +1,6 @@
 <div class="alert alert-error" *ngIf="!dataSource">DataSource is required.</div>
 
-<nav *ngIf="dataSource" [class]="pftClass">
+<nav *ngIf="dataSource" [class]="pftClass" [hidden]="autoHide && total <= 1">
   <ul class="pagination">
     <li class="page-item" *ngIf="showAbsoluteNavigationButtons">
       <a class="page-link" (click)="goToFirst()" href="javascript:;" [attr.disabled]="!isLoading && !hasPreviousPage">

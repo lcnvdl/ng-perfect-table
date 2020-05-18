@@ -14,6 +14,7 @@ export class PaginatorComponent extends PFTComponent implements OnInit {
   @Input() strPrevious = "Previous";
   @Input() showRelativeNavigationButtons = true;
   @Input() showAbsoluteNavigationButtons = true;
+  @Input() autoHide = false;
 
   @Input() dataSource: DataSourceComponent;
   @Input() visiblePages = 5;
@@ -42,7 +43,7 @@ export class PaginatorComponent extends PFTComponent implements OnInit {
   }
 
   get pages() {
-    let list = [];
+    const list = [];
     if (this.visiblePages >= this.dataSource.totalPages) {
       for (let i = 0; i < this.dataSource.totalPages; i++) {
         list.push(i);
@@ -54,8 +55,8 @@ export class PaginatorComponent extends PFTComponent implements OnInit {
       let i = 1;
 
       while (list.length < this.visiblePages) {
-        let p = this.current - i;
-        let n = this.current + i;
+        const p = this.current - i;
+        const n = this.current + i;
 
         if (p >= 0) {
           list.unshift(p);
@@ -73,15 +74,21 @@ export class PaginatorComponent extends PFTComponent implements OnInit {
   }
 
   goTo(page) {
-    this.dataSource.changePage(page);
+    if (this.dataSource.currentPage !== page) {
+      this.dataSource.changePage(page);
+    }
   }
 
   goToNext() {
-    this.goTo(this.current + 1);
+    if (this.hasNextPage) {
+      this.goTo(this.current + 1);
+    }
   }
 
   goToPrevious() {
-    this.goTo(this.current - 1);
+    if (this.hasPreviousPage) {
+      this.goTo(this.current - 1);
+    }
   }
 
   goToFirst() {

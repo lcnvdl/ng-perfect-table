@@ -40,12 +40,12 @@ export class DataSourceComponent implements OnInit {
     }
   }
 
-  get currentPage() {
-    return this._currentPage;
-  }
-
   get totalPages() {
     return Math.ceil(this.total / this.pageSize);
+  }
+
+  get currentPage() {
+    return this._currentPage;
   }
 
   @Input()

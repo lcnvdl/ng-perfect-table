@@ -13,9 +13,10 @@ This software is provided free of charge and without restriction under the [MIT 
 npm i --save ng-perfect-table
 ```
 ## Features
-- Data abstraction (dataSource)
+- Data abstraction (DataSource)
 - Client/Server side Pagination & Sorting
 - Integrated Pager
+- Offline datasource (for an easy way to work on client side)
 - Light codebase / No external dependencies
 
 ## Getting started

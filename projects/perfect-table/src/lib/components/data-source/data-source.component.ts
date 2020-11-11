@@ -100,6 +100,11 @@ export class DataSourceComponent implements OnInit {
     });
   }
 
+  async changePageSize(newSize: number) {
+    this.pageSize = newSize;
+    await this.reload();
+  }
+
   changePage(newPage: number) {
     const currentPage = this._currentPage;
     this.onPageChangeStart.emit({ currentPage, newPage });

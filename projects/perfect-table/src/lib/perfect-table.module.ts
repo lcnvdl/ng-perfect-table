@@ -4,13 +4,15 @@ import { DataSourceComponent } from './components/data-source/data-source.compon
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { CommonModule } from '@angular/common';
+import { PageSizerComponent } from './components/page-sizer/page-sizer.component';
 
 @NgModule({
   declarations: [
     PerfectTableComponent,
     DataSourceComponent,
     DataTableComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    PageSizerComponent
   ],
   imports: [
     CommonModule
@@ -19,7 +21,8 @@ import { CommonModule } from '@angular/common';
     PerfectTableComponent,
     DataSourceComponent,
     DataTableComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    PageSizerComponent
   ]
 })
 export class PerfectTableModule {

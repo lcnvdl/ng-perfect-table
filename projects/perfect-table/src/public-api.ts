@@ -2,6 +2,7 @@
 export * from './lib/components/paginator/paginator.component';
 export * from './lib/components/data-table/data-table.component';
 export * from './lib/components/data-source/data-source.component';
+export * from './lib/components/page-sizer/page-sizer.component';
 
 export * from './lib/enums/sort-type.enum';
 
